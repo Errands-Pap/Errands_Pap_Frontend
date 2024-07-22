@@ -1,7 +1,9 @@
+import Header from "../common/Header"
+
 export default function Home() {
     return (
-        <div>
-            <h1>Home</h1>
+        <div className="px-16 py-6">
+            <Header />
         </div>
     )
 }
