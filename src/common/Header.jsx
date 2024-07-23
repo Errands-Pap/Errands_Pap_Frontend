@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import ButtonPrimary from "./ButtonPrimary"
+import ButtonSecondary from "./ButtonSecondary"
 
 export default function Header() {
   return (
@@ -7,16 +9,18 @@ export default function Header() {
 				<div className="">
 					<img src="./src/assets/Vector (1).png" alt="" />
 				</div>
-				<div className="text-white space-x-12">
-					<Link>About Us</Link>
-					<Link>How it Works</Link>
-					<Link>Benefits</Link>
-					<Link>Team</Link>
-					<Link>Contacts</Link>
-				</div>
-				<div className="text-white space-x-6 flex items-center">
-					<button className="px-12 py-4 font-medium bg-[#b9ff66] text-black rounded-2xl">Login</button>
-					<button className="px-12 py-4 font-medium border-2 border-[#b9ff66] text-[#35f42e] rounded-2xl">Sign Up</button>
+				<div className="flex items-center space-x-10">
+					<div className="text-white text-xl space-x-10">
+						<Link>About Us</Link>
+						<Link>How it Works</Link>
+						<Link>Benefits</Link>
+						<Link>Team</Link>
+						<Link>Contacts</Link>
+					</div>
+					<div className="text-white space-x-6 flex items-center">
+						<ButtonPrimary>Login</ButtonPrimary>
+						<ButtonSecondary>Sign Up</ButtonSecondary>
+					</div>
 				</div>
       </div>
     </div>
