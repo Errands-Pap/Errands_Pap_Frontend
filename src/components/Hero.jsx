@@ -1,6 +1,8 @@
+import ButtonPrimary from "../common/ButtonPrimary"
+
 export default function Hero() {
   return (
-    <div>
+    <div className="py-10 mb-10">
 			<div className="relative mb-10">
 				<div className="flex justify-end z-10 object-cover">
 					<img src="./src/assets/Hero.png" alt="Delivery girl" className="w-[68%] opacity-40" />
@@ -21,7 +23,7 @@ export default function Hero() {
 					<p className="text-2xl font-normal">Save time and energy by ordering groceries, essentials, and more from your favorite stores. Enjoy the convenience of having everything you need delivered directly to your apartment without ever stepping out.</p>
 				</div>
 				<div>
-					<button className="px-12 py-4 font-medium bg-[#b9ff66] text-black rounded-2xl">Shop Now</button>
+					<ButtonPrimary>Shop Now</ButtonPrimary>
 				</div>
 			</div>
 		</div>
