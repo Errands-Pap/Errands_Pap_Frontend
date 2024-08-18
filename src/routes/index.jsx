@@ -5,6 +5,7 @@ import Root from "./Root"
 import SignUp from "../pages/SignUp"
 import MainApp from "./MainApp"
 import NewOrder from "../pages/NewOrder"
+import Orders from "../pages/Orders"
 
 const router = createBrowserRouter([
 	{
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
 		path: '/orders',
 		element: <MainApp />,
 		children: [
+			{
+				path: '/orders',
+				element: <Orders />
+			},
 			{
 				path: '/orders/new-order',
 				element: <NewOrder />

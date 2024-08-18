@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ButtonPrimary from "../common/ButtonPrimary"
+import HomeAndBuilding from "../common/HomeAndBuilding"
 
 export default function NewOrder() {
 	const [fields, setFields] = useState([{ item: '', price: '' }])
@@ -17,13 +18,7 @@ export default function NewOrder() {
   return (
     <div className="px-16 bg-[#06050f] w-full">
       <div className="flex flex-col justify-center items-center w-full">
-				<div className="w-1/2 flex flex-col">
-					<label className="text-white font-medium self-start mb-2">Building and House Number</label>
-					<div class="flex border border-gray-500 rounded-lg bg-black text-white overflow-hidden">
-						<input type="text" placeholder="Building" className="flex-1 px-4 py-2 bg-[#040409] text-white focus:outline-none"/>
-						<input type="text" placeholder="House Number" className="flex-1 px-4 py-2 bg-[#040409] border-l text-white focus:outline-none"/>
-					</div>
-				</div>
+				<HomeAndBuilding />
 
 				<h1 className="text-white font-normal text-5xl my-10">New Order</h1>
 
