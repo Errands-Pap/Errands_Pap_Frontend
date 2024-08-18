@@ -16,7 +16,7 @@ export default function HowItWorks() {
 	const toggleSix = () => setOpenSix(!openSix)
 
   return (
-    <div className="py-10 px-16 space-y-10">
+    <div className="py-10 px-16 space-y-10" id="work">
       <div>
 				<h1 className="text-[4rem] font-light text-[#ffffff99]">How It Works</h1>
 			</div>

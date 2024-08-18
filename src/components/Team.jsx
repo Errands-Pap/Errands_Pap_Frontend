@@ -1,6 +1,6 @@
 export default function Team() {
   return (
-		<div className="py-10 px-16 ">
+		<div className="py-10 px-16" id="team">
 			<div className="mb-10">
 				<h1 className="text-[4rem] font-light text-[#ffffff99]">Team</h1>
 			</div>

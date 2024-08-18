@@ -10,11 +10,11 @@ export default function Footer() {
 
 			<div>
 				<div className="text-white text-xl space-x-10 mb-20">
-					<Link>About Us</Link>
-					<Link>How it Works</Link>
-					<Link>Benefits</Link>
-					<Link>Team</Link>
-					<Link>Contacts</Link>
+					<a href="#about">About Us</a>
+					<a href="#work">How it Works</a>
+					<a href="#benefits">Benefits</a>
+					<a href="#team">Team</a>
+					<a href="#contact">Contacts</a>
 				</div>
 			</div>
 		

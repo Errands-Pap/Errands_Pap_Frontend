@@ -3,7 +3,7 @@ import Line from "../assets/Line 3.png"
 
 export default function Benefits() {
     return (
-        <div className="py-10 px-16">
+        <div className="py-10 px-16" id="benefits">
             <div className="mb-10">
 							<h1 className="text-[4rem] font-light text-[#ffffff99]">Benefits</h1>
 						</div>
