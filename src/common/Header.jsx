@@ -19,7 +19,7 @@ export default function Header() {
 					</div>
 					<div className="text-white space-x-6 flex items-center">
 						<ButtonPrimary>Login</ButtonPrimary>
-						<ButtonSecondary>Sign Up</ButtonSecondary>
+						<ButtonSecondary>Signup</ButtonSecondary>
 					</div>
 				</div>
       </div>

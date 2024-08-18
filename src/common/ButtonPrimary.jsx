@@ -1,5 +1,5 @@
 export default function ButtonPrimary({ children }) {
     return(
-        <button className="px-6 py-3 font-medium bg-[#b9ff66] border-2 border-[#b9ff66] text-black rounded-xl">{children}</button>
+        <button className="px-6 py-3 font-medium bg-[#b9ff66] border-2 border-[#b9ff66] text-black rounded-xl w-full">{children}</button>
     )
 }
