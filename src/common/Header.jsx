@@ -4,10 +4,10 @@ import ButtonSecondary from "./ButtonSecondary"
 
 export default function Header() {
   return (
-    <div className="mb-12 px-16">
+    <div className="mb-12 px-16 py-6 bg-[#06050f]">
       <div className="flex justify-between items-center w-full">
 				<div className="">
-					<img src="./src/assets/Vector (1).png" alt="" />
+					<img src="../src/assets/Vector (1).png" alt="" />
 				</div>
 				<div className="flex items-center space-x-10">
 					<div className="text-white text-xl space-x-10">
