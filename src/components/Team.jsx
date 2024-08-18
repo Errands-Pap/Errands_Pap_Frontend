@@ -1,14 +1,14 @@
 export default function Team() {
   return (
-		<div className="py-10">
+		<div className="py-10 px-16 ">
 			<div className="mb-10">
-				<h1 className="text-[4rem] font-light text-[#ffffff99]">How It Works</h1>
+				<h1 className="text-[4rem] font-light text-[#ffffff99]">Team</h1>
 			</div>
 			<div className="flex gap-5 overflow-x-scroll">
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/Hero.png" 
-							alt="Mark Wandera" 
+							src="./src/assets/smmuli.jpeg" 
+							alt="Samuel Muli" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>
 						<div className="absolute py-10 px-7 inset-0 flex flex-col justify-between text-white bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -24,7 +24,7 @@ export default function Team() {
 
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/Hero.png" 
+							src="./src/assets/Cedric.jpeg" 
 							alt="Mark Wandera" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>
@@ -58,8 +58,8 @@ export default function Team() {
 
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/Hero.png" 
-							alt="Mark Wandera" 
+							src="./src/assets/Kendi.jpeg" 
+							alt="Kendi Hillary" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>
 						<div className="absolute py-10 px-7 inset-0 flex flex-col justify-between text-white bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -75,7 +75,7 @@ export default function Team() {
 
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/Hero.png" 
+							src="./src/assets/Shazzy.jpeg" 
 							alt="Mark Wandera" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>

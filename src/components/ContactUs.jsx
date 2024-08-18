@@ -2,7 +2,7 @@ import ButtonPrimary from "../common/ButtonPrimary"
 
 export default function ContactUs() {
   return (
-		<div  className="py-10 space-y-10 mb-[12rem]">
+		<div  className="py-10 px-16 space-y-10 mb-[12rem]">
 			<div>
 				<h1 className="text-[4rem] font-light text-[#ffffff99]">Contact Us</h1>
 			</div>

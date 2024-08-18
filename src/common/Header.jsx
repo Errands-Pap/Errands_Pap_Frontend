@@ -4,7 +4,7 @@ import ButtonSecondary from "./ButtonSecondary"
 
 export default function Header() {
   return (
-    <div className="mb-12">
+    <div className="mb-12 px-16">
       <div className="flex justify-between items-center w-full">
 				<div className="">
 					<img src="./src/assets/Vector (1).png" alt="" />

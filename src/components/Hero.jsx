@@ -2,7 +2,7 @@ import ButtonPrimary from "../common/ButtonPrimary"
 
 export default function Hero() {
   return (
-    <div className="py-10 mb-10">
+    <div className="py-10 px-16 mb-10">
 			<div className="relative mb-10">
 				<div className="flex justify-end z-10 object-cover">
 					<img src="./src/assets/Hero.png" alt="Delivery girl" className="w-[68%] opacity-40" />
