@@ -10,6 +10,10 @@ export default function Orders(){
 				<div className="w-1/8">
 					<ButtonPrimary>New Order</ButtonPrimary>
 				</div>
+
+				<div>
+					
+				</div>
 			</div>
 		</div>
   )
