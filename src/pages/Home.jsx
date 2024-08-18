@@ -4,6 +4,7 @@ import HowItWorks from "../components/HowItWorks"
 import Benefits from "../components/Benefits"
 import Team from "../components/Team"
 import ContactUs from "../components/ContactUs"
+import Footer from "../components/Footer"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
 			<Benefits />
       <Team />
       <ContactUs />
+      <Footer />
     </div>
   )
 }
