@@ -4,7 +4,7 @@ export default function Team() {
 			<div className="mb-10">
 				<h1 className="text-[4rem] font-light text-[#ffffff99]">Team</h1>
 			</div>
-			<div className="flex gap-5 overflow-x-scroll">
+			<div className="flex gap-5 overflow-x-scroll no-scrollbar">
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
 							src="./src/assets/smmuli.jpeg" 
