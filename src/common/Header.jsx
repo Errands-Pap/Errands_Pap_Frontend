@@ -21,8 +21,8 @@ export default function Header() {
 						<a href="#contact">Contacts</a>
 					</div>
 					<div className="text-white space-x-6 flex items-center">
-						<ButtonPrimary>Login</ButtonPrimary>
-						<ButtonSecondary>Signup</ButtonSecondary>
+						<ButtonPrimary onClick={() => navigate("/login")}>Login</ButtonPrimary>
+						<ButtonSecondary onClick={() => navigate("/signup")}>Signup</ButtonSecondary>
 					</div>
 				</div>
       </div>

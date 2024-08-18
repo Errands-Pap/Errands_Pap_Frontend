@@ -33,7 +33,7 @@ export default function Login() {
 						<ButtonPrimary>Login</ButtonPrimary>
 					</form>
 
-					<p className="text-white text-center text-sm font-normal">New User? <Link className="font-bold underline">Sign Up Here</Link></p>
+					<p className="text-white text-center text-sm font-normal">New User? <Link to="/signup" className="font-bold underline">Sign Up Here</Link></p>
 				</div>
 			</div>
 		</div>

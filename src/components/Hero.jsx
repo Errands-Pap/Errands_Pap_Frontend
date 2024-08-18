@@ -7,8 +7,6 @@ export default function Hero() {
 				<div className="flex justify-end z-10 object-cover">
 					<img src="./src/assets/Hero.png" alt="Delivery girl" className="w-[68%] opacity-40" />
 				</div>
-
-				{/* <div className="absolute top-0 right-0 h-full w-[68%] bg-gradient-to-r from-transparent to-black opacity-60"></div> */}
 				
 				<div className="absolute top-1/3">
 					<h1 className="text-8xl text-white flex flex-col space-y-6">
