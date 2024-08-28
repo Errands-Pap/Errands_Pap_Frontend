@@ -31,7 +31,7 @@ server.interceptors.response.use(
 
 			try {
 				const token = JSON.parse(localStorage.getItem("user") || '{}')
-				const response = await server.post("auth/api/token", {
+				const response = await server.post("auth/api/token/", {
 					grant_type: "refresh_token",
 					refresh_token: token.refresh
 				})
@@ -59,7 +59,7 @@ export const login = createAsyncThunk(
 	'user/login',
 	async (values, {rejectWithValue}) => {
 		try {
-			const { data: auth } = await server.post("auth/api/token", values)
+			const { data: auth } = await server.post("auth/api/token/", values)
 			// const { data: userData } = await server.get("auth/api/user", {
 			// 	headers: {
 			// 		"Authorization": `Bearer ${auth.access}`
@@ -84,7 +84,7 @@ export const refreshToken = createAsyncThunk(
 	async (_, {rejectWithValue}) => {
 		try {
 			const token = JSON.parse(localStorage.getItem("user") || '{}')
-			const response = await server.post("auth/api/token/refresh", {
+			const response = await server.post("auth/api/token/refresh/", {
 				grant_type: "refresh_token",
 				refresh_token: token.refresh
 			})
