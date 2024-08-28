@@ -1,9 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import ButtonPrimary from "./ButtonPrimary"
 import ButtonSecondary from "./ButtonSecondary"
+import { useSelector } from "react-redux"
 
 export default function Header() {
 
+	const { user } = useSelector((state) => state.userInfo)
 	const navigate = useNavigate()
 	const location = useLocation()
 
@@ -26,8 +28,15 @@ export default function Header() {
 						</div>
 					)}
 					<div className="text-white space-x-6 flex items-center">
-						<ButtonPrimary onClick={() => navigate("/login")}>Login</ButtonPrimary>
-						<ButtonSecondary onClick={() => navigate("/signup")}>Signup</ButtonSecondary>
+						{!user && (
+							<>
+								<ButtonPrimary onClick={() => navigate("/login")}>Login</ButtonPrimary>
+								<ButtonSecondary onClick={() => navigate("/signup")}>Signup</ButtonSecondary>
+							</>
+						)}
+						{user && (
+							<ButtonPrimary>Logout</ButtonPrimary>
+						)}
 					</div>
 				</div>
       </div>
