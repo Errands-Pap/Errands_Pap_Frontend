@@ -1,10 +1,18 @@
 import { useState } from "react"
 import ButtonPrimary from "../common/ButtonPrimary"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import axios from "axios"
 
 export default function SignUp() {
 	const [isVisible, setIsVisible] = useState(false)
 	const [isVisible2, setIsVisible2] = useState(false)
+	const [firstName, setFirstName] = useState("")
+	const [lastName, setLastName] = useState("")
+	const [email, setEmail] = useState("")
+	const [phone, setPhone] = useState("")
+	const [password, setPassword] = useState("")
+	const [confirmPassword, setConfirmPassword] = useState("")
+	const navigate = useNavigate()
 
 	const toggleVisibility = () => {
 		setIsVisible(!isVisible)
@@ -12,6 +20,51 @@ export default function SignUp() {
 
 	const toggleVisibility2 = () => {
 		setIsVisible2(!isVisible2)
+	}
+
+	const handleChange = (e) => {
+		const { name, value } = e.target
+		if (name === "firstName") {
+			setFirstName(value)
+		} else if (name === "lastName") {
+			setLastName(value)
+		} else if (name === "email") {
+			setEmail(value)
+		} else if (name === "phone") {
+			setPhone(value)
+		} else if (name === "password") {
+			setPassword(value)
+		} else if (name === "confirmPassword") {
+			setConfirmPassword(value)
+		}
+	}
+
+	const handleSignUp = async (e) => {
+		e.preventDefault()
+
+		if (password !== confirmPassword) {
+			alert("Passwords do not match")
+			return
+		}
+
+		try {
+			const response = await axios.post("http://127.0.0.1:8000/users/register/", {
+				first_name: firstName,
+				last_name: lastName,
+				email: email,
+				phone_number: phone,
+				password: password,
+				password2: confirmPassword
+			})
+
+			if (response.status === 201) {
+				navigate("/login")
+			} else {
+				alert("Failed to sign up")
+			}
+		} catch(err) {
+			console.log(err)
+		}
 	}
 
   return (
@@ -23,22 +76,57 @@ export default function SignUp() {
 				<h1 className="text-[#b9ff66] text-5xl font-medium self-start mb-6">Sign Up</h1>
 
 				<div className="flex flex-col w-full">
-					<form action="" className="flex flex-col mb-8">
+					<form onSubmit={handleSignUp} className="flex flex-col mb-8">
 						<label htmlFor="" className="text-white font-medium self-start mb-1">First Name</label>
-						<input type="text" placeholder="Jane" className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" />
+						<input 
+							type="text"
+							name="firstName"
+							value={firstName}
+							onChange={handleChange}
+							placeholder="Jane"
+							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+						/>
 
 						<label htmlFor="" className="text-white font-medium self-start mb-1">Last Name</label>
-						<input type="text" placeholder="Doe" className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" />
+						<input 
+							type="text"
+							name="lastName"
+							value={lastName}
+							onChange={handleChange}
+							placeholder="Doe" 
+							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+						/>
 
 						<label htmlFor="" className="text-white font-medium self-start mb-1">Email Address</label>
-						<input type="email" placeholder="janedoe@example.com" className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" />
+						<input 
+							type="email" 
+							name="email"
+							value={email}
+							onChange={handleChange}
+							placeholder="janedoe@example.com" 
+							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+						/>
 
 						<label htmlFor="" className="text-white font-medium self-start mb-1">Phone Number</label>
-						<input type="tel" placeholder="0712345678" className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" />
+						<input 
+							type="tel" 
+							name="phone"
+							value={phone}
+							onChange={handleChange}
+							placeholder="+254712345678" 
+							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+						/>
 
 						<div className="flex flex-col relative">
 							<label htmlFor="" className="text-white font-medium self-start mb-1">Password</label>
-							<input type={isVisible ? "text" : "password"} placeholder="Password" className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" />
+							<input 
+								type={isVisible ? "text" : "password"} 
+								name="password"
+								value={password}
+								onChange={handleChange}
+								placeholder="Password" 
+								className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+							/>
 							<span class="material-symbols-outlined absolute right-5 top-9 cursor-pointer text-white" onClick={toggleVisibility}>
 								{isVisible ? "visibility" : "visibility_off"}
 							</span>
@@ -46,13 +134,20 @@ export default function SignUp() {
 
 						<div className="flex flex-col relative">
 							<label htmlFor="" className="text-white font-medium self-start mb-1">Confirm Password</label>
-							<input type={isVisible2 ? "text" : "password"} placeholder="Password" className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-10" />
+							<input 
+								type={isVisible2 ? "text" : "password"} 
+								name="confirmPassword"
+								value={confirmPassword}
+								onChange={handleChange}
+								placeholder="Password"
+								className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-10" 
+							/>
 							<span class="material-symbols-outlined absolute right-5 top-9 cursor-pointer text-white" onClick={toggleVisibility2}>
 								{isVisible2 ? "visibility" : "visibility_off"}
 							</span>
 						</div>
 
-						<ButtonPrimary>Login</ButtonPrimary>
+						<ButtonPrimary type="submit">Sign Up</ButtonPrimary>
 					</form>
 
 					<p className="text-white text-center text-sm font-normal">New User? <Link to="/login" className="font-bold underline">Login Here</Link></p>
