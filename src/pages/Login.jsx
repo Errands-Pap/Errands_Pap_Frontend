@@ -1,12 +1,13 @@
 import { useState } from "react";
 import ButtonPrimary from "../common/ButtonPrimary";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/slices/userSlice";
 
 export default function Login() {
 	const dispatch = useDispatch()
-	const { loading, error } = useSelector(state => state.userInfo)
+	const navigate = useNavigate()
+	const { loading, error, user } = useSelector(state => state.userInfo)
 	const [isVisible, setIsVisible] = useState(false)
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
@@ -27,6 +28,9 @@ export default function Login() {
 	const handleLogin = async (e) => {
 		e.preventDefault()
 		dispatch(login({ email, password }))
+		if (user) {
+			navigate("/orders")
+		}
 	}	
 
   return (
