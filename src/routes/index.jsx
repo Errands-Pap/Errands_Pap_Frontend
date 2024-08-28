@@ -22,6 +22,18 @@ const AuthRoute = ({ element }) => {
 	)
 }
 
+const ProtectedRoute = ({ element }) => {
+	const { user } = useSelector((state) => state.userInfo)
+
+	const location = useLocation()
+
+	return user ? (
+		element
+	) : (
+		<Navigate to="/login" state={{ from: location }} replace />
+	)
+}
+
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -47,11 +59,11 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: '/orders',
-				element: <Orders />
+				element: <ProtectedRoute element={<Orders />} />
 			},
 			{
 				path: '/orders/new-order',
-				element: <NewOrder />
+				element: <ProtectedRoute element={<NewOrder />} />
 			}
 		]
 	}
