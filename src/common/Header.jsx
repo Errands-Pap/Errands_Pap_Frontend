@@ -1,15 +1,22 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import ButtonPrimary from "./ButtonPrimary"
 import ButtonSecondary from "./ButtonSecondary"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { logout } from "../redux/slices/userSlice"
 
 export default function Header() {
 
 	const { user } = useSelector((state) => state.userInfo)
+	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const location = useLocation()
 
 	const isHomePage = location.pathname === "/"
+
+	const handleLogout = () => {
+		dispatch(logout())
+		navigate("/")
+	}
 
   return (
     <div className="mb-12 px-16 py-6 bg-[#06050f]">
@@ -35,7 +42,7 @@ export default function Header() {
 							</>
 						)}
 						{user && (
-							<ButtonPrimary>Logout</ButtonPrimary>
+							<ButtonPrimary onClick={handleLogout}>Logout</ButtonPrimary>
 						)}
 					</div>
 				</div>
