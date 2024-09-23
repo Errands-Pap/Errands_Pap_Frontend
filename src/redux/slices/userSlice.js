@@ -60,14 +60,15 @@ export const login = createAsyncThunk(
 	async (values, {rejectWithValue}) => {
 		try {
 			const { data: auth } = await server.post("auth/api/token/", values)
-			// const { data: userData } = await server.get("auth/api/user", {
-			// 	headers: {
-			// 		"Authorization": `Bearer ${auth.access}`
-			// 	}
-			// })
+
+			const { data: userData } = await server.get(`user/${userId}/profile`, {
+				headers: {
+					"Authorization": `Bearer ${auth.access}`
+				}
+			})
 
 			const user = {
-				// ...userData,
+				...userData,
 				...auth
 			}
 
