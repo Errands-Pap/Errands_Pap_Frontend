@@ -1,7 +1,8 @@
 import { useState } from "react"
 import ButtonPrimary from "../common/ButtonPrimary"
 import { Link, useNavigate } from "react-router-dom"
-import axios from "axios"
+import { useDispatch, useSelector } from "react-redux"
+import { register } from "../redux/slices/userSlice"
 
 export default function SignUp() {
 	const [isVisible, setIsVisible] = useState(false)
@@ -13,6 +14,9 @@ export default function SignUp() {
 	const [password, setPassword] = useState("")
 	const [confirmPassword, setConfirmPassword] = useState("")
 	const navigate = useNavigate()
+
+	const dispatch = useDispatch()
+	const { isLoading } = useSelector(state => state.userInfo)
 
 	const toggleVisibility = () => {
 		setIsVisible(!isVisible)
@@ -48,21 +52,17 @@ export default function SignUp() {
 		}
 
 		try {
-			const response = await axios.post("http://127.0.0.1:8000/user/register/", {
+			const userData = {
 				first_name: firstName,
 				last_name: lastName,
-				email: email,
+				email,
 				phone_number: phone,
-				password: password,
+				password,
 				password2: confirmPassword
-			})
-
-			if (response.status === 201) {
-				navigate("/login")
-			} else {
-				alert("Failed to sign up")
 			}
-		} catch(err) {
+
+			dispatch(register(userData)).unwrap().then(() => navigate("/login"))
+		}catch (err) {
 			console.log(err)
 		}
 	}
