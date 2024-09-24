@@ -7,7 +7,7 @@ import { login } from "../redux/slices/userSlice";
 export default function Login() {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const { isLoading } = useSelector(state => state.userInfo)
+	const { loading, error, user } = useSelector(state => state.userInfo)
 	const [isVisible, setIsVisible] = useState(false)
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
@@ -27,16 +27,9 @@ export default function Login() {
 
 	const handleLogin = async (e) => {
 		e.preventDefault()
-
-		try {
-			const userData = {
-				email,
-				password
-			}
-
-			dispatch(login(userData)).unwrap().then(() => navigate("/orders"))
-		}catch (err) {
-			console.log(err)
+		dispatch(login({ email, password }))
+		if (user) {
+			navigate("/orders")
 		}
 	}	
 
