@@ -33,8 +33,12 @@ const useOrders = () => {
 			formData.append("user", userId)
 			formData.append("delivery_location", user.addresses[0].physical_address)
 			formData.append("order_category", data.order_category)
-			formData.append("order_description", data.order_description)
-			formData.append("total_amount", data.total_amount)
+			formData.append("special_instructions", data.special_instructions)
+			
+			data.items.forEach((item) => {
+				formData.append("order_description", item.order_description); // No array notation
+				formData.append("total_amount", item.total_amount); // No array notation
+			});
 
 			const payload = formData
 
@@ -44,12 +48,13 @@ const useOrders = () => {
 				}
 			})
 		}catch {
-
+			console.log(error)
 		}
 	}
 
 	return {
-		submitAddresses
+		submitAddresses,
+		createOrder
 	}
 }
 
