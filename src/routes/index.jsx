@@ -9,7 +9,8 @@ import Orders from "../pages/Orders"
 import { useSelector } from "react-redux"
 
 const AuthRoute = ({ element }) => {
-	const { user } = useSelector((state) => state.userInfo)
+	// const { user } = useSelector((state) => state.userInfo)
+	const user = JSON.parse(localStorage.getItem("user"))
 
 	const authRoutes = ['/', '/login', '/signup']
 
@@ -23,7 +24,8 @@ const AuthRoute = ({ element }) => {
 }
 
 const ProtectedRoute = ({ element }) => {
-	const { user } = useSelector((state) => state.userInfo)
+	// const { user } = useSelector((state) => state.userInfo)
+	const user = JSON.parse(localStorage.getItem("user"))
 
 	const location = useLocation()
 

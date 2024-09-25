@@ -6,7 +6,8 @@ import { logout } from "../redux/slices/userSlice"
 
 export default function Header() {
 
-	const { user } = useSelector((state) => state.userInfo)
+	// const { user } = useSelector((state) => state.userInfo)
+	const user = JSON.parse(localStorage.getItem("user"))
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const location = useLocation()
