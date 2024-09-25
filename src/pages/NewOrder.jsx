@@ -2,11 +2,13 @@ import { useState } from "react"
 import ButtonPrimary from "../common/ButtonPrimary"
 import HomeAndBuilding from "../common/HomeAndBuilding"
 import useOrders from "../hooks/useOrders"
+import { useNavigate } from "react-router-dom"
 
 export default function NewOrder() {
 	const [fields, setFields] = useState([{ item: '', price: '' }])
 	const [vendor, setVendor] = useState("")
 	const [specialInstructions, setSpecialInstructions] = useState("")
+	const navigate = useNavigate()
 
 	const { createOrder } = useOrders()
 
@@ -42,6 +44,8 @@ export default function NewOrder() {
 		}
 
 		await createOrder(data)
+
+		navigate("/orders")
 	}
 
   return (
