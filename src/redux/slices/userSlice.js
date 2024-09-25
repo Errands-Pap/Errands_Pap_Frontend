@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const BASE_URL = "http://127.0.0.1:8000";
 
-const server = axios.create({
+export const server = axios.create({
   baseURL: BASE_URL,
   headers: {
     "Content-Type": "application/json",

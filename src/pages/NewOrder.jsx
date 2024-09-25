@@ -36,7 +36,7 @@ export default function NewOrder() {
 							<div key={index} class="flex border border-gray-500 rounded-lg bg-black text-white overflow-hidden mb-2">
 								<input type="text" placeholder="Item" className="flex-1 px-4 py-2 bg-black text-white focus:outline-none"/>
 								<input type="number" placeholder="Price" className="flex-1 px-4 py-2 bg-black border-l text-white focus:outline-none"/>
-								{/* <span class="material-symbols-outlined">close</span> */}
+								<span class="material-symbols-outlined text-lg" onClick={() => handleRemoveField(index)}>close</span>
 							</div>
 						))}
 						<button type="button" className="text-[#b9ff66] flex items-center self-end my-4" onClick={handleAddField}><span class="material-symbols-outlined text-lg">add</span>Add New Item</button>
