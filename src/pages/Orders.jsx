@@ -1,66 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HomeAndBuilding from "../common/HomeAndBuilding"
 import ButtonPrimary from "../common/ButtonPrimary"
 import { useNavigate } from "react-router-dom";
+import useOrders from "../hooks/useOrders";
+
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toISOString().split('T')[0]; // Extract YYYY-MM-DD part
+};
 
 export default function Orders(){
 	const [expandedRows, setExpandedRows] = useState([])
+	const { fetchOrders, orders } = useOrders()
 	
 	const navigate = useNavigate()
 
+	useEffect(() => {
+		fetchOrders()
+	}, [])
+
+	// const handleRowClick = (orderId) => {
+	// 	const isRowExpanded = expandedRows.includes(orderId);
+	// 	const newExpandedRows = isRowExpanded ? expandedRows.filter((id) => id !== orderId) : [...expandedRows, orderId];
+
+	// 	setExpandedRows(newExpandedRows);
+	// };
+
 	const handleRowClick = (orderId) => {
-		const isRowExpanded = expandedRows.includes(orderId);
-		const newExpandedRows = isRowExpanded ? expandedRows.filter((id) => id !== orderId) : [...expandedRows, orderId];
-
-		setExpandedRows(newExpandedRows);
+    const isRowExpanded = expandedRows.includes(orderId);
+    const newExpandedRows = isRowExpanded ? [] : [orderId]; // If row is expanded, collapse it; else expand only this row
+    setExpandedRows(newExpandedRows);
 	};
-
-	const orders = [
-		{
-			id: 741999,
-      date: 'Friday, July 12, 2024',
-      items: 'Sukuma Wiki, Avocado, Rice',
-      deliveredTo: 'Mariakani Flats, G20',
-      status: 'Delivered',
-      totalAmount: 400,
-      detailedItems: [
-        { name: 'Sukuma Wiki', quantity: 200 },
-        { name: 'Avocado', quantity: 50 },
-        { name: 'Rice', quantity: 150 },
-      ],
-      deliveredAt: 'Friday, July 12, 2024 12:00 PM'
-		},
-		{
-			id: 741998,
-			date: 'Friday, July 12, 2024',
-			items: 'Sukuma Wiki, Avocado, Rice',
-			deliveredTo: 'Mariakani Flats, G20',
-			status: 'Delivered',
-			totalAmount: 400,
-			detailedItems: [
-				{ name: 'Sukuma Wiki', quantity: 200 },
-				{ name: 'Avocado', quantity: 50 },
-				{ name: 'Rice', quantity: 150 },
-			],
-			deliveredAt: 'Friday, July 12, 2024 12:00 PM'
-		},
-		{
-			id: 741997,
-			date: 'Friday, July 12, 2024',
-			items: 'Sukuma Wiki, Avocado, Water, Yams, Tea',
-			deliveredTo: 'Mariakani Flats, G20',
-			status: 'Delivered',
-			totalAmount: 400,
-			detailedItems: [
-				{ name: 'Sukuma Wiki', quantity: 200 },
-				{ name: 'Avocado', quantity: 50 },
-				{ name: 'Rice', quantity: 150 },
-				{ name: 'Water', quantity: 150 },
-				{ name: 'Rice', quantity: 150 },
-			],
-			deliveredAt: 'Friday, July 12, 2024 12:00 PM'
-		}
-	]
 
 	const getItemsWithEllipsis = (items) => {
 		const itemsArray = items.split(', ');
@@ -93,35 +63,36 @@ export default function Orders(){
 						<tbody className="bg-[#040409] w-full">
 							{orders.map((order) => (
 								<React.Fragment key={order.id}>
-									<tr className={`cursor-pointer hover:bg-[#0e0e11cc] ${expandedRows.includes(order.id) ? 'bg-[#0e0e11cc]' : 'border-b border-[#3f3f3f]'}`}>
+									<tr className={`cursor-pointer hover:bg-[#0e0e11cc] ${expandedRows.includes(order.order_description) ? 'bg-[#0e0e11cc]' : 'border-b border-[#3f3f3f]'}`}>
 										<td className="py-4 align-top flex justify-center items-center">
 											<span 
-												className={`material-symbols-outlined px-2 transform transition-transform origin-center duration-300 ${expandedRows.includes(order.id) ? 'rotate-180' : 'rotate-0'}`} 
-												onClick={() => handleRowClick(order.id)}>
+												className={`material-symbols-outlined px-2 transform transition-transform origin-center duration-300 ${expandedRows.includes(order.order_description) ? 'rotate-180' : 'rotate-0'}`} 
+												onClick={() => handleRowClick(order.order_description)}>
 													keyboard_arrow_down</span>
 										</td>
 										<td className="px-6 py-4">
 											<div className="flex flex-col gap-2 font-medium text-lg">
-												<span>Order #{order.id}</span>
-												<span className="text-sm text-gray-500 text-ellipsis">{getItemsWithEllipsis(order.items)}</span>
+												<span>Order #30</span>
+												<span className="text-sm text-gray-500 text-ellipsis">{getItemsWithEllipsis(order.order_description)}</span>
 											</div>
 										</td>
-										<td className="px-6 py-4 align-top font-medium text-lg">{order.date}</td>
-										<td className="px-6 py-4 align-top font-medium text-lg">{order.deliveredTo}</td>
+										<td className="px-6 py-4 align-top font-medium text-lg">{formatDate(order.date_ordered)}</td>
+										<td className="px-6 py-4 align-top font-medium text-lg">{order.delivery_location}</td>
 										<td className="px-6 py-4 flex gap-20">
 											<span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#25bd6c] text-white">
-												{order.status}
+												{/* {order.status} */}
 											</span>
 											<img src="../src/assets/delete-bin-5-line.png" className="pr-10" alt="" />
 										</td>
 									</tr>
-									{expandedRows.includes(order.id) && (
+									{expandedRows.includes(order.order_description) && (
 										<tr className="border-b border-[#3f3f3f] w-full bg-[#0e0e11cc]">
 											<td colSpan="5" className="px-6 py-4">
 												<div className="text-sm pl-[2.7rem]">
-													<p className="font-medium">Items: <span className="font-normal">{order.detailedItems.map(item => `${item.name} (${item.quantity})`).join(', ')}</span></p>
-													<p className="font-medium">Total Amount: <span className="font-normal">Kshs. {order.totalAmount}</span></p>
-													<p className="font-medium">Date and Time Delivered: <span className="font-normal">{order.deliveredAt}</span></p>
+													{/* <p className="font-medium">Items: <span className="font-normal">{order.detailedItems.map(item => `${item.order_description} (${item.total_amount})`).join(', ')}</span></p> */}
+													<p className="font-medium">Item: <span className="font-normal">{order.order_description}</span></p>
+													<p className="font-medium">Total Amount: <span className="font-normal">Kshs. {order.total_amount}</span></p>
+													{/* <p className="font-medium">Date and Time Delivered: <span className="font-normal">{order.deliveredAt}</span></p> */}
 												</div>
 											</td>
 										</tr>

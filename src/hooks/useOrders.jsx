@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { server } from "../redux/slices/userSlice";
 import { useDispatch } from "react-redux";
@@ -9,6 +9,8 @@ const useOrders = () => {
 	const dispatch = useDispatch();
 	const user = JSON.parse(localStorage.getItem("user"))
 	const userId = user?.user_id
+
+  const [orders, setOrders] = useState([])
 
 	const submitAddresses = async(data) => {
 		try {
@@ -52,9 +54,20 @@ const useOrders = () => {
 		}
 	}
 
+  const fetchOrders = async() => {
+    try {
+      const response = await server.get(`/orders/user-orders/user/${userId}`)
+      setOrders(response.data.orders)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 	return {
 		submitAddresses,
-		createOrder
+		createOrder,
+    fetchOrders,
+    orders
 	}
 }
 
