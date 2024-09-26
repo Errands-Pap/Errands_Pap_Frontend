@@ -29,11 +29,12 @@ const useOrders = () => {
 		}
 	}
 
-	const createOrder = async(data) => {
+	const createOrder = async(data, selectedAddress) => {
 		try{
 			const formData = new FormData();
 			formData.append("user", userId)
-			formData.append("delivery_location", user.addresses[0].physical_address)
+			// formData.append("delivery_location", user.addresses[0].physical_address)
+      formData.append("delivery_location", selectedAddress)
 			formData.append("order_category", data.order_category)
 			formData.append("special_instructions", data.special_instructions)
 			

@@ -6,7 +6,7 @@ import useOrders from "../hooks/useOrders";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
-  return date.toISOString().split('T')[0]; // Extract YYYY-MM-DD part
+  return date.toISOString().split('T')[0];
 };
 
 export default function Orders(){
@@ -19,16 +19,9 @@ export default function Orders(){
 		fetchOrders()
 	}, [])
 
-	// const handleRowClick = (orderId) => {
-	// 	const isRowExpanded = expandedRows.includes(orderId);
-	// 	const newExpandedRows = isRowExpanded ? expandedRows.filter((id) => id !== orderId) : [...expandedRows, orderId];
-
-	// 	setExpandedRows(newExpandedRows);
-	// };
-
 	const handleRowClick = (orderId) => {
     const isRowExpanded = expandedRows.includes(orderId);
-    const newExpandedRows = isRowExpanded ? [] : [orderId]; // If row is expanded, collapse it; else expand only this row
+    const newExpandedRows = isRowExpanded ? [] : [orderId];
     setExpandedRows(newExpandedRows);
 	};
 
@@ -41,7 +34,7 @@ export default function Orders(){
 	}
 
   return (
-    <div className="px-16 bg-[#06050f] w-full">
+    <div className="px-16 pb-20 bg-[#06050f] w-full">
 			<div className="flex flex-col justify-center items-center w-full space-y-10">
 				<HomeAndBuilding />
 
@@ -81,6 +74,7 @@ export default function Orders(){
 										<td className="px-6 py-4 flex gap-20">
 											<span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#25bd6c] text-white">
 												{/* {order.status} */}
+												Delivered
 											</span>
 											<img src="../src/assets/delete-bin-5-line.png" className="pr-10" alt="" />
 										</td>

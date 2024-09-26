@@ -8,6 +8,7 @@ export default function NewOrder() {
 	const [fields, setFields] = useState([{ item: '', price: '' }])
 	const [vendor, setVendor] = useState("")
 	const [specialInstructions, setSpecialInstructions] = useState("")
+	const [selectedAddress, setSelectedAddress] = useState("")
 	const navigate = useNavigate()
 
 	const { createOrder } = useOrders()
@@ -43,7 +44,7 @@ export default function NewOrder() {
 			special_instructions: specialInstructions
 		}
 
-		await createOrder(data)
+		await createOrder(data, selectedAddress)
 
 		navigate("/orders")
 	}
@@ -51,7 +52,7 @@ export default function NewOrder() {
   return (
     <div className="px-16 bg-[#06050f] w-full">
       <div className="flex flex-col justify-center items-center w-full">
-				<HomeAndBuilding />
+				<HomeAndBuilding onAddressSelect={setSelectedAddress} />
 
 				<h1 className="text-white font-normal text-5xl my-10">New Order</h1>
 
