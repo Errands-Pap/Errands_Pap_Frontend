@@ -58,26 +58,25 @@ export default function NewOrder() {
 
 				<div className="flex flex-col w-1/2">
 					<form onSubmit={handleSubmit} className="flex flex-col mb-8">
-						<label htmlFor="vendor" className="text-white font-medium self-start mb-2">Vendor</label>
-						<select 
-							value={vendor} 
-							onChange={(e) => setVendor(e.target.value)} 
-							name="vendor" 
-							id="vendor" 
-							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6"
-						>
-							<option value="" disabled selected hidden>Select Vendor</option>
-							<option value="Vendor 1">Vendor 1</option>
-							<option value="Vendor 2">Vendor 2</option>
-						</select>
-
 						<label htmlFor="" className="text-white font-medium self-start mb-2">Item and Price</label>
 						{fields.map((field, index) => (
 							<div key={index} class="flex border border-gray-500 rounded-lg bg-black text-white overflow-hidden mb-2">
+								<select 
+									value={vendor} 
+									onChange={(e) => setVendor(e.target.value)} 
+									name="vendor" 
+									id="vendor"
+									className="flex-1 px-4 py-2 bg-black text-white focus:outline-none"
+								>
+									<option value="" disabled selected hidden>Select Vendor</option>
+									<option value="Groceries">Groceries</option>
+									<option value="Alcohol">Alcohol</option>
+									<option value="Supplies">Supplies</option>
+								</select>
 								<input 
 									type="text" 
 									placeholder="Item" 
-									className="flex-1 px-4 py-2 bg-black text-white focus:outline-none"
+									className="flex-1 px-4 py-2 bg-black border-l text-white focus:outline-none"
 									name="item"
 									value={field.item}
 									onChange={(e) => handleFieldChange(index, e)}
@@ -90,7 +89,7 @@ export default function NewOrder() {
 									value={field.price}
 									onChange={(e) => handleFieldChange(index, e)}
 								/>
-								<span class="material-symbols-outlined text-lg" onClick={() => handleRemoveField(index)}>close</span>
+								<span class="material-symbols-outlined text-lg cursor-pointer" onClick={() => handleRemoveField(index)}>close</span>
 							</div>
 						))}
 						<button type="button" className="text-[#b9ff66] flex items-center self-end my-4" onClick={handleAddField}><span class="material-symbols-outlined text-lg">add</span>Add New Item</button>
