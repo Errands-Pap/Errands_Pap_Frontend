@@ -61,14 +61,14 @@ const useOrders = () => {
 		try {
 			const payload = {
 				user: userId,
-				delivery_location: selectedAddress,
 				order: {
-					special_instructions: data.special_instructions,
 					items: data.items.map((item) => ({
 						name: item.order_description,
 						category: item.order_category,
 						price: item.total_amount
 					})),
+					special_instructions: data.special_instructions,
+					delivery_location: selectedAddress,
 					total_amount: data.items.reduce((acc, item) => acc + parseFloat(item.total_amount), 0)
 				}
 			}

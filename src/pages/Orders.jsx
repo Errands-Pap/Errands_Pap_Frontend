@@ -69,8 +69,8 @@ export default function Orders(){
 												<span className="text-sm text-gray-500 text-ellipsis">{getItemsWithEllipsis(order.order.items.map(item => item.name).join(", "))}</span>
 											</div>
 										</td>
-										{/* <td className="px-6 py-4 align-top font-medium text-lg">{formatDate(order.date_ordered)}</td> */}
-										<td className="px-6 py-4 align-top font-medium text-lg">{order.delivery_location}</td>
+										<td className="px-6 py-4 align-top font-medium text-lg">01-01-2000</td>
+										<td className="px-6 py-4 align-top font-medium text-lg">{order.order.delivery_location}</td>
 										<td className="px-6 py-4 flex gap-20">
 											<span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#25bd6c] text-white">
 												{/* {order.status} */}
@@ -79,7 +79,7 @@ export default function Orders(){
 											<img src="../src/assets/delete-bin-5-line.png" className="pr-10" alt="" />
 										</td>
 									</tr>
-									{expandedRows.includes(order.order_description) && (
+									{expandedRows.includes(order.id) && (
 										<tr className="border-b border-[#3f3f3f] w-full bg-[#0e0e11cc]">
 											<td colSpan="5" className="px-6 py-4">
 												<div className="text-sm pl-[2.7rem]">

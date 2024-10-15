@@ -11,6 +11,11 @@ export const server = axios.create({
   },
 });
 
+const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).access : null;
+if (token) {
+  server.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+}
+
 server.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -40,8 +45,8 @@ server.interceptors.response.use(
 
         return server(originalRequest);
       } catch (err) {
-        localStorage.removeItem("user"); // clear token on refresh failure
-        window.location.href = "/login"; // Redirect to login on failure
+        localStorage.removeItem("user"); 
+        window.location.href = "/login";
         return Promise.reject(err);
       }
     }
@@ -52,7 +57,7 @@ server.interceptors.response.use(
 
 // Initial state
 const initialState = {
-  user: JSON.parse(localStorage.getItem("user") || '{}'),
+  user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null,
   loading: false,
   error: null,
 };
@@ -135,7 +140,7 @@ const userSlice = createSlice({
       .addCase(refreshToken.rejected, (state) => {
         state.user = null;
         localStorage.removeItem("user");
-        window.location.href = "/login"; // Redirect on failed refresh
+        window.location.href = "/login";
       });
   },
 });
