@@ -5,7 +5,7 @@ import useOrders from "../hooks/useOrders"
 import { useNavigate } from "react-router-dom"
 
 export default function NewOrder() {
-	const [fields, setFields] = useState([{ item: '', price: '' }])
+	const [fields, setFields] = useState([{ item: '', price: '', vendor: '' }])
 	const [vendor, setVendor] = useState("")
 	const [specialInstructions, setSpecialInstructions] = useState("")
 	const [selectedAddress, setSelectedAddress] = useState("")
@@ -34,14 +34,13 @@ export default function NewOrder() {
 		
 		const orderItems = fields.map(field => ({
 			order_description: field.item,
+			order_category: field.vendor,
 			total_amount: field.price
 		}))
 
 		const data = {
-			order_category: vendor,
-			// total_amount: fields.reduce((acc, field) => acc + parseFloat(field.price), 0),
 			items: orderItems,
-			special_instructions: specialInstructions
+			special_instructions: specialInstructions,
 		}
 
 		await createOrder(data, selectedAddress)
@@ -62,8 +61,8 @@ export default function NewOrder() {
 						{fields.map((field, index) => (
 							<div key={index} class="flex border border-gray-500 rounded-lg bg-black text-white overflow-hidden mb-2">
 								<select 
-									value={vendor} 
-									onChange={(e) => setVendor(e.target.value)} 
+									value={field.vendor} 
+									onChange={(e) => handleFieldChange(index, e)} 
 									name="vendor" 
 									id="vendor"
 									className="flex-1 px-4 py-2 bg-black text-white focus:outline-none"
