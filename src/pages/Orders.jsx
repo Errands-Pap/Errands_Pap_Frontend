@@ -56,20 +56,20 @@ export default function Orders(){
 						<tbody className="bg-[#040409] w-full">
 							{orders.map((order) => (
 								<React.Fragment key={order.id}>
-									<tr className={`cursor-pointer hover:bg-[#0e0e11cc] ${expandedRows.includes(order.order_description) ? 'bg-[#0e0e11cc]' : 'border-b border-[#3f3f3f]'}`}>
+									<tr className={`cursor-pointer hover:bg-[#0e0e11cc] ${expandedRows.includes(order.id) ? 'bg-[#0e0e11cc]' : 'border-b border-[#3f3f3f]'}`}>
 										<td className="py-4 align-top flex justify-center items-center">
 											<span 
-												className={`material-symbols-outlined px-2 transform transition-transform origin-center duration-300 ${expandedRows.includes(order.order_description) ? 'rotate-180' : 'rotate-0'}`} 
-												onClick={() => handleRowClick(order.order_description)}>
+												className={`material-symbols-outlined px-2 transform transition-transform origin-center duration-300 ${expandedRows.includes(order.id) ? 'rotate-180' : 'rotate-0'}`} 
+												onClick={() => handleRowClick(order.id)}>
 													keyboard_arrow_down</span>
 										</td>
 										<td className="px-6 py-4">
 											<div className="flex flex-col gap-2 font-medium text-lg">
-												<span>Order #30</span>
-												<span className="text-sm text-gray-500 text-ellipsis">{getItemsWithEllipsis(order.order_description)}</span>
+												<span>Order #{order.id}</span>
+												<span className="text-sm text-gray-500 text-ellipsis">{getItemsWithEllipsis(order.order.items.map(item => item.name).join(", "))}</span>
 											</div>
 										</td>
-										<td className="px-6 py-4 align-top font-medium text-lg">{formatDate(order.date_ordered)}</td>
+										{/* <td className="px-6 py-4 align-top font-medium text-lg">{formatDate(order.date_ordered)}</td> */}
 										<td className="px-6 py-4 align-top font-medium text-lg">{order.delivery_location}</td>
 										<td className="px-6 py-4 flex gap-20">
 											<span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#25bd6c] text-white">
@@ -84,8 +84,8 @@ export default function Orders(){
 											<td colSpan="5" className="px-6 py-4">
 												<div className="text-sm pl-[2.7rem]">
 													{/* <p className="font-medium">Items: <span className="font-normal">{order.detailedItems.map(item => `${item.order_description} (${item.total_amount})`).join(', ')}</span></p> */}
-													<p className="font-medium">Item: <span className="font-normal">{order.order_description}</span></p>
-													<p className="font-medium">Total Amount: <span className="font-normal">Kshs. {order.total_amount}</span></p>
+													<p className="font-medium">Item: <span className="font-normal">{order.order.items.map(item => `${item.name} (${item.price})`).join(", ")}</span></p>
+													<p className="font-medium">Total Amount: <span className="font-normal">Kshs. {order.order.total_amount}</span></p>
 													{/* <p className="font-medium">Date and Time Delivered: <span className="font-normal">{order.deliveredAt}</span></p> */}
 												</div>
 											</td>

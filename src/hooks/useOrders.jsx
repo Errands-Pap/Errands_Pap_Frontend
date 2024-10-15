@@ -86,8 +86,8 @@ const useOrders = () => {
 
   const fetchOrders = async() => {
     try {
-      const response = await server.get(`/orders/user-orders/user/${userId}`)
-      setOrders(response.data.orders)
+      const response = await server.get(`/orders/user-orders/`)
+      setOrders(response.data)
     } catch (error) {
       console.log(error)
     }
