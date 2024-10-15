@@ -7,6 +7,7 @@ import MainApp from "./MainApp"
 import NewOrder from "../pages/NewOrder"
 import Orders from "../pages/Orders"
 import { useSelector } from "react-redux"
+import OrderDetails from "../pages/OrderDetails"
 
 const AuthRoute = ({ element }) => {
 	// const { user } = useSelector((state) => state.userInfo)
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
 			{
 				path: '/orders/new-order',
 				element: <ProtectedRoute element={<NewOrder />} />
+			},
+			{
+				path: '/orders/:id',
+				element: <ProtectedRoute element={<OrderDetails />} />
 			}
 		]
 	}

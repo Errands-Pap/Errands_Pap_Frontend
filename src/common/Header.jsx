@@ -43,7 +43,7 @@ export default function Header() {
 							</>
 						)}
 						{user && (
-							<ButtonPrimary onClick={handleLogout}>Logout</ButtonPrimary>
+							<ButtonSecondary onClick={handleLogout}>Logout</ButtonSecondary>
 						)}
 					</div>
 				</div>

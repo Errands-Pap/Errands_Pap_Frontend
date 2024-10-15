@@ -25,6 +25,11 @@ export default function Orders(){
     setExpandedRows(newExpandedRows);
 	};
 
+	const handleOrderClick = (order) => {
+		localStorage.setItem("selectedOrder", JSON.stringify(order));
+		navigate(`/orders/${order.id}`, { state: { order } });
+	};
+
 	const getItemsWithEllipsis = (items) => {
 		const itemsArray = items.split(', ');
 		if (itemsArray.length > 3) {
@@ -65,7 +70,7 @@ export default function Orders(){
 										</td>
 										<td className="px-6 py-4">
 											<div className="flex flex-col gap-2 font-medium text-lg">
-												<span>Order #{order.id}</span>
+												<span onClick={() => handleOrderClick(order)}>Order #{order.id}</span>
 												<span className="text-sm text-gray-500 text-ellipsis">{getItemsWithEllipsis(order.order.items.map(item => item.name).join(", "))}</span>
 											</div>
 										</td>
