@@ -29,34 +29,6 @@ const useOrders = () => {
 		}
 	}
 
-	// const createOrder = async(data, selectedAddress) => {
-	// 	try{
-	// 		const formData = new FormData();
-	// 		formData.append("user", userId)
-  //     formData.append("delivery_location", selectedAddress)
-	// 		formData.append("order[special_instructions]", data.special_instructions)
-			
-	// 		data.items.forEach((item, index) => {
-	// 			formData.append(`order[items][${index}][name]`, item.order_description);
-	// 			formData.append(`order[items][${index}][category]`, item.order_category);
-	// 			formData.append(`order[items][${index}][price]`, item.total_amount);
-	// 		});
-
-	// 		const totalAmount = data.items.reduce((acc, item) => acc + parseFloat(item.total_amount), 0)
-	// 		formData.append("order[total_amount]", totalAmount)
-
-	// 		const payload = formData
-
-	// 		const response = await server.post(`/orders/create-order/`, payload, {
-	// 			headers: {
-	// 				'Content-Type': 'multipart/form-data',
-	// 			}
-	// 		})
-	// 	}catch {
-	// 		console.log(error)
-	// 	}
-	// }
-
 	const createOrder = async(data, selectedAddress) => {
 		try {
 			const payload = {
