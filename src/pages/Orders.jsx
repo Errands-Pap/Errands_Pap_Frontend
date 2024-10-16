@@ -90,7 +90,9 @@ export default function Orders(){
 										<td className="px-6 py-4 align-top font-medium text-lg">{formatDate(order.date_ordered)}</td>
 										<td className="px-6 py-4 align-top font-medium text-lg">{order.order.delivery_location}</td>
 										<td className="px-6 py-4 flex gap-20">
-											<span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#25bd6c] text-white">
+											<span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white ${
+												order?.status === 'pending' ? 'bg-orange-400' : 'bg-[#25bd6c]'
+											}`}>
 												{formatStatus(order?.status)}
 											</span>
 											<img src="../src/assets/delete-bin-5-line.png" className="pr-10" alt="" />
