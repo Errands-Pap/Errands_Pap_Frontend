@@ -17,11 +17,19 @@ const formatDate = (dateString) => {
 export default function Orders(){
 	const [expandedRows, setExpandedRows] = useState([])
 	const { fetchOrders, orders } = useOrders()
+	const [name, setName] = useState('')
 	
 	const navigate = useNavigate()
 
 	useEffect(() => {
 		fetchOrders()
+	}, [])
+
+	useEffect(() => {
+		const user = JSON.parse(localStorage.getItem('user'))
+		if (user) {
+			setName(user.first_name + " " + user.last_name)
+		}
 	}, [])
 
 	const handleRowClick = (orderId) => {
@@ -54,7 +62,8 @@ export default function Orders(){
   return (
     <div className="px-16 pb-20 bg-[#06050f] w-full">
 			<div className="flex flex-col justify-center items-center w-full space-y-10">
-				<HomeAndBuilding />
+				{/* <HomeAndBuilding /> */}
+				<h1 className="text-white font-medium text-5xl">Welcome {name}</h1>
 
 				<div className="w-1/8">
 					<ButtonPrimary onClick={() => navigate("/orders/new-order")}>New Order</ButtonPrimary>

@@ -57,8 +57,14 @@ const useOrders = () => {
 	
 
   const fetchOrders = async() => {
+		const token = JSON.parse(localStorage.getItem('user'))?.access;
+
     try {
-      const response = await server.get(`/orders/user-orders/`)
+      const response = await server.get(`/orders/user-orders/`, {
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			})
       setOrders(response.data)
     } catch (error) {
       console.log(error)
