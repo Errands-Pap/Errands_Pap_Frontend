@@ -43,6 +43,14 @@ export default function Orders(){
 		return items;
 	}
 
+	const formatStatus = (status) => {
+		if(status === "delivered") {
+			return "Delivered"
+		} else if (status === "pending") {
+			return "Pending"
+		}
+	}
+
   return (
     <div className="px-16 pb-20 bg-[#06050f] w-full">
 			<div className="flex flex-col justify-center items-center w-full space-y-10">
@@ -83,7 +91,7 @@ export default function Orders(){
 										<td className="px-6 py-4 align-top font-medium text-lg">{order.order.delivery_location}</td>
 										<td className="px-6 py-4 flex gap-20">
 											<span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#25bd6c] text-white">
-												{order?.status}
+												{formatStatus(order?.status)}
 											</span>
 											<img src="../src/assets/delete-bin-5-line.png" className="pr-10" alt="" />
 										</td>
@@ -92,10 +100,8 @@ export default function Orders(){
 										<tr className="border-b border-[#3f3f3f] w-full bg-[#0e0e11cc]">
 											<td colSpan="5" className="px-6 py-4">
 												<div className="text-sm pl-[2.7rem]">
-													{/* <p className="font-medium">Items: <span className="font-normal">{order.detailedItems.map(item => `${item.order_description} (${item.total_amount})`).join(', ')}</span></p> */}
 													<p className="font-medium">Item: <span className="font-normal">{order.order.items.map(item => `${item.name} (${item.price})`).join(", ")}</span></p>
 													<p className="font-medium">Total Amount: <span className="font-normal">Kshs. {order.order.total_amount}</span></p>
-													{/* <p className="font-medium">Date and Time Delivered: <span className="font-normal">{order.deliveredAt}</span></p> */}
 												</div>
 											</td>
 										</tr>
