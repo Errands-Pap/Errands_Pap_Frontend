@@ -33,7 +33,7 @@ export default function OrderDetails() {
   }
 
   return (
-		<div className="px-16 w-full">
+		<div className="px-16 w-full bg-[#06050f] pb-20">
 			<div className="flex flex-col justify-center items-center w-full">
 				<h1 className="text-white font-medium text-5xl mb-10">Preview</h1>
 
