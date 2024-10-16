@@ -71,7 +71,7 @@ export default function SignUp() {
     <div className="bg-[#06050f] flex w-full">
 			<img className="h-screen w-1/2 object-cover" src="../src/assets/Rectangle 79.png" alt="" />
 
-			<div className="flex flex-col items-center w-1/2 px-[12rem] pt-[3rem]">
+			<div className="flex flex-col items-center w-1/2 px-[12rem] pt-4">
 				<h2 className="text-white font-medium text-2xl self-start mb-2">Let's Get You Started</h2>
 				<h1 className="text-[#b9ff66] text-5xl font-medium self-start mb-6">Sign Up</h1>
 
@@ -84,7 +84,7 @@ export default function SignUp() {
 							value={firstName}
 							onChange={handleChange}
 							placeholder="Jane"
-							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-4" 
 						/>
 
 						<label htmlFor="" className="text-white font-medium self-start mb-1">Last Name</label>
@@ -94,7 +94,7 @@ export default function SignUp() {
 							value={lastName}
 							onChange={handleChange}
 							placeholder="Doe" 
-							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-4" 
 						/>
 
 						<label htmlFor="" className="text-white font-medium self-start mb-1">Email Address</label>
@@ -104,7 +104,7 @@ export default function SignUp() {
 							value={email}
 							onChange={handleChange}
 							placeholder="janedoe@example.com" 
-							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-4" 
 						/>
 
 						<label htmlFor="" className="text-white font-medium self-start mb-1">Phone Number</label>
@@ -114,7 +114,7 @@ export default function SignUp() {
 							value={phone}
 							onChange={handleChange}
 							placeholder="+254712345678" 
-							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+							className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-4" 
 						/>
 
 						<div className="flex flex-col relative">
@@ -125,7 +125,7 @@ export default function SignUp() {
 								value={password}
 								onChange={handleChange}
 								placeholder="Password" 
-								className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-6" 
+								className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-4" 
 							/>
 							<span class="material-symbols-outlined absolute right-5 top-9 cursor-pointer text-white" onClick={toggleVisibility}>
 								{isVisible ? "visibility" : "visibility_off"}
@@ -140,7 +140,7 @@ export default function SignUp() {
 								value={confirmPassword}
 								onChange={handleChange}
 								placeholder="Password"
-								className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-10" 
+								className="w-full bg-[#040409] focus:outline-none border border-[#c8cad0] py-2 px-3 rounded-xl text-white mb-8" 
 							/>
 							<span class="material-symbols-outlined absolute right-5 top-9 cursor-pointer text-white" onClick={toggleVisibility2}>
 								{isVisible2 ? "visibility" : "visibility_off"}
