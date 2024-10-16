@@ -53,7 +53,7 @@ export default function HomeAndBuilding({ onAddressSelect }) {
 					))}
 				</datalist>
 				<button className="bg-[#b9ff66] px-4 py-2">
-					<span className="material-symbols-outlined text-[#040409] text-2xl">pin_drop</span>
+					<span className="material-symbols-outlined text-[#040409] text-2xl">send</span>
 				</button>
 			</form>
 		</div>
