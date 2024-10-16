@@ -6,7 +6,12 @@ import useOrders from "../hooks/useOrders";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
-  return date.toISOString().split('T')[0];
+  return date.toLocaleDateString('en-US', {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
 };
 
 export default function Orders(){
@@ -74,12 +79,11 @@ export default function Orders(){
 												<span className="text-sm text-gray-500 text-ellipsis">{getItemsWithEllipsis(order.order.items.map(item => item.name).join(", "))}</span>
 											</div>
 										</td>
-										<td className="px-6 py-4 align-top font-medium text-lg">01-01-2000</td>
+										<td className="px-6 py-4 align-top font-medium text-lg">{formatDate(order.date_ordered)}</td>
 										<td className="px-6 py-4 align-top font-medium text-lg">{order.order.delivery_location}</td>
 										<td className="px-6 py-4 flex gap-20">
 											<span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#25bd6c] text-white">
-												{/* {order.status} */}
-												Delivered
+												{order?.status}
 											</span>
 											<img src="../src/assets/delete-bin-5-line.png" className="pr-10" alt="" />
 										</td>
