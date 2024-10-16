@@ -59,7 +59,7 @@ export default function OrderDetails() {
 				<div className="border-b-[0.5px] w-1/2 my-6"></div>
 				
 				<h2 className="text-white font-bold text-lg">Special Instructions</h2>
-				<p className="text-white max-w-1/3">{order.order.special_instructions ? order.order.special_instructions : '--'}</p>
+				<p className="text-white w-1/2">{order.order.special_instructions ? order.order.special_instructions : '--'}</p>
 
 				<div className="border-b-[0.5px] w-1/2 my-6"></div>
 
