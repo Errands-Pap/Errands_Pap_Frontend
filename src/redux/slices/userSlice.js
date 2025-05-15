@@ -35,7 +35,7 @@ server.interceptors.response.use(
           return Promise.reject(error);
         }
 
-        const { data } = await server.post("/auth/api/token/refresh/", {
+        const { data } = await server.post("/api/auth/token/refresh/", {
           refresh: token.refresh,
         });
 
@@ -67,10 +67,10 @@ export const login = createAsyncThunk(
   'user/login',
   async (values, { rejectWithValue }) => {
     try {
-      const { data: auth } = await server.post("/auth/api/token/", values);
+      const { data: auth } = await server.post("/api/auth/token/", values);
 
       const userId = auth.user_id;
-      const { data: userData } = await server.get(`/user/${userId}/profile`, {
+      const { data: userData } = await server.get(`/api/user/${userId}/profile`, {
         headers: {
           "Authorization": `Bearer ${auth.access}`,
         },
@@ -95,7 +95,7 @@ export const refreshToken = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const token = JSON.parse(localStorage.getItem("user") || '{}');
-      const { data } = await server.post("/auth/api/token/refresh/", {
+      const { data } = await server.post("/api/auth/token/refresh/", {
         refresh: token.refresh,
       });
 

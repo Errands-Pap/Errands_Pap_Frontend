@@ -19,7 +19,7 @@ const useOrders = () => {
 			formData.append("physical_address", data)
 			const payload = formData
 
-			const response = await server.post(`/address/create-address/`, payload, {
+			const response = await server.post(`/api/address/create-address/`, payload, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				}
@@ -45,7 +45,7 @@ const useOrders = () => {
 				}
 			}
 	
-			const response = await server.post(`/orders/create-order/`, payload, {
+			const response = await server.post(`/api/orders/create-order/`, payload, {
 				headers: {
 					'Content-Type': 'application/json',
 				}
@@ -60,7 +60,7 @@ const useOrders = () => {
 		const token = JSON.parse(localStorage.getItem('user'))?.access;
 
     try {
-      const response = await server.get(`/orders/user-orders/`, {
+      const response = await server.get(`/api/orders/user-orders/`, {
 				headers: {
 					Authorization: `Bearer ${token}`
 				}
