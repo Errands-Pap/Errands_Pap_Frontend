@@ -48,7 +48,7 @@ export default function SignUp() {
 		}
 
 		try {
-			const response = await axios.post("http://127.0.0.1:8000/user/register/", {
+			const response = await axios.post("http://127.0.0.1:8000/api/user/register/", {
 				first_name: firstName,
 				last_name: lastName,
 				email: email,
