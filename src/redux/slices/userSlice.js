@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const BASE_URL = import.meta.env.API_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const server = axios.create({
   baseURL: BASE_URL,

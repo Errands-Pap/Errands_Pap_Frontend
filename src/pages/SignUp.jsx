@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 export default function SignUp() {
-	const apiUrl = import.meta.env.API_BASE_URL;
+	const apiUrl = import.meta.env.VITE_API_BASE_URL;
 	const [isVisible, setIsVisible] = useState(false)
 	const [isVisible2, setIsVisible2] = useState(false)
 	const [firstName, setFirstName] = useState("")
