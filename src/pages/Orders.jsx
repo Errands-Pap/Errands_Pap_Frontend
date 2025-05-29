@@ -103,7 +103,7 @@ export default function Orders(){
 											}`}>
 												{formatStatus(order?.status)}
 											</span>
-											{/* <img src="../src/assets/delete-bin-5-line.png" className="pr-10" alt="" /> */}
+											{/* <img src="/images/delete-bin-5-line.png" className="pr-10" alt="" /> */}
 										</td>
 										<td className="px-6 py-4 align-top font-medium text-lg">{order.order.delivery_location}</td>
 									</tr>

@@ -23,7 +23,7 @@ export default function Header() {
     <div className="mb-12 px-16 py-6 bg-[#06050f]">
       <div className="flex justify-between items-center w-full">
 				<div className="">
-					<img src="../src/assets/Vector (1).png" alt="" onClick={() => navigate("/")} />
+					<img src="/images/Vector (1).png" alt="" onClick={() => navigate("/")} />
 				</div>
 				<div className="flex items-center space-x-10">
 					{isHomePage && (
