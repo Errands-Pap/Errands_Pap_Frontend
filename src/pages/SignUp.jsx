@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 export default function SignUp() {
+	const apiUrl = import.meta.env.API_BASE_URL;
 	const [isVisible, setIsVisible] = useState(false)
 	const [isVisible2, setIsVisible2] = useState(false)
 	const [firstName, setFirstName] = useState("")
@@ -48,7 +49,7 @@ export default function SignUp() {
 		}
 
 		try {
-			const response = await axios.post("http://127.0.0.1:8000/api/user/register/", {
+			const response = await axios.post(`${apiUrl}/api/user/register/`, {
 				first_name: firstName,
 				last_name: lastName,
 				email: email,
