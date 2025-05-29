@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import Line from "../assets/Line 3.png"
+import Line from "../../public/Line 3.png"
 
 export default function Benefits() {
     return (
