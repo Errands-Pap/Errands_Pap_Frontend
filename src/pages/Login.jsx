@@ -38,7 +38,7 @@ export default function Login() {
 
   return (
 		<div className="bg-[#06050f] flex w-full">
-			<img className="h-screen w-1/2 object-cover" src="../src/assets/Rectangle 79.png" alt="" />
+			<img className="h-screen w-1/2 object-cover" src="/images/Rectangle 79.png" alt="" />
 
 			<div className="flex flex-col items-center w-1/2 px-[12rem] py-[6rem]">
 				<h2 className="text-white font-medium text-2xl self-start mb-5">Welcome Back!</h2>

@@ -7,7 +7,7 @@ export default function Team() {
 			<div className="flex gap-5 overflow-x-scroll no-scrollbar">
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/smmuli.jpeg" 
+							src="/images/smmuli.jpeg" 
 							alt="Samuel Muli" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>
@@ -24,8 +24,8 @@ export default function Team() {
 
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/Cedric.jpeg" 
-							alt="Mark Wandera" 
+							src="/images/Cedric.jpeg" 
+							alt="Cedric Damian" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>
 						<div className="absolute py-10 px-7 inset-0 flex flex-col justify-between text-white bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -41,7 +41,7 @@ export default function Team() {
 
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/Hero.png" 
+							src="/images/Hero.png" 
 							alt="Mark Wandera" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>
@@ -58,7 +58,7 @@ export default function Team() {
 
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/Kendi.jpeg" 
+							src="/images/Kendi.jpeg" 
 							alt="Kendi Hillary" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>
@@ -75,8 +75,8 @@ export default function Team() {
 
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/Shazzy.jpeg" 
-							alt="Mark Wandera" 
+							src="/images/Shazzy.jpeg" 
+							alt="Sharon Onsongo" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>
 						<div className="absolute py-10 px-7 inset-0 flex flex-col justify-between text-white bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -92,7 +92,7 @@ export default function Team() {
 
 					<div className="relative group max-w-sm flex-shrink-0 bg-black rounded-xl overflow-hidden inline-block">
 						<img 
-							src="./src/assets/Hero.png" 
+							src="/images/Hero.png" 
 							alt="Mark Wandera" 
 							className="w-full h-auto group-hover:blur-sm transition-filter duration-300"
 						/>

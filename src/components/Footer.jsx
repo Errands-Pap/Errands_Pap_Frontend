@@ -6,7 +6,7 @@ export default function Footer() {
   return (
 		<div className="bg-[#040409] px-16 py-10">
 
-			<img src="./src/assets/Vector (1).png"  className="mb-10" alt="" />
+			<img src="/images/Vector (1).png"  className="mb-10" alt="" />
 
 			<div>
 				<div className="text-white text-xl space-x-10 mb-20">
@@ -23,8 +23,8 @@ export default function Footer() {
 			<div className="flex justify-between items-center">
 				<p className="text-gray-300">© {currentYear} ErrandsPap. All rights reserved.</p>
 				<div className="flex gap-5">
-					<img src="./src/assets/x-social-media-white-icon.png" alt="" className="h-6" />
-					<img src="./src/assets/linkedin.png" alt="" className="h-6" />
+					<img src="/images/x-social-media-white-icon.png" alt="" className="h-6" />
+					<img src="/images/linkedin.png" alt="" className="h-6" />
 				</div>
 			</div>
 		</div>

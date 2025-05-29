@@ -5,7 +5,7 @@ export default function Hero() {
     <div className="py-10 px-16 mb-10" id="about">
 			<div className="relative mb-10">
 				<div className="flex justify-end z-10 object-cover">
-					<img src="./src/assets/Hero.png" alt="Delivery girl" className="w-[68%] opacity-40" />
+					<img src="/images/Hero.png" alt="Delivery girl" className="w-[68%] opacity-40" />
 				</div>
 				
 				<div className="absolute top-1/3">
