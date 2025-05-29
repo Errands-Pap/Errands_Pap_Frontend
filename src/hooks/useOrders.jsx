@@ -4,7 +4,7 @@ import { server } from "../redux/slices/userSlice";
 import { useDispatch } from "react-redux";
 
 
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = import.meta.env.API_BASE_URL;;
 const useOrders = () => {
 	const dispatch = useDispatch();
 	const user = JSON.parse(localStorage.getItem("user"))
