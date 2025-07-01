@@ -32,7 +32,7 @@ export default function HomeAndBuilding({ onAddressSelect }) {
 	}, [onAddressSelect])
 
 	return (
-		<div className="w-1/2 flex flex-col">
+		<div className="w-full lg:w-1/2 flex flex-col">
 			<label className="text-white font-medium self-start mb-2">Building and House Number</label>
 			<form onSubmit={handleSubmit} className="flex border border-gray-500 rounded-lg bg-black text-white overflow-hidden">
 				<input

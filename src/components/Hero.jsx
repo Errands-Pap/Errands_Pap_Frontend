@@ -2,14 +2,14 @@ import ButtonPrimary from "../common/ButtonPrimary"
 
 export default function Hero() {
   return (
-    <div className="py-10 px-16 mb-10" id="about">
-			<div className="relative mb-10">
-				<div className="flex justify-end z-10 object-cover">
-					<img src="/images/Hero.png" alt="Delivery girl" className="w-[68%] opacity-40" />
+    <div className="py-3 lg:py-10 px-4 lg:px-16 mb-4 lg:mb-10" id="about">
+			<div className="relative mb-4 lg:mb-10">
+				<div className="flex lg:justify-end z-10 object-cover">
+					<img src="/images/Hero.png" alt="Delivery girl" className="w-full lg:w-[68%] opacity-40" />
 				</div>
 				
-				<div className="absolute top-1/3">
-					<h1 className="text-8xl text-white flex flex-col space-y-6">
+				<div className="absolute top-1/4">
+					<h1 className="text-4xl lg:text-8xl text-white flex flex-col space-y-6">
 						<span className="text-[#b9ff66]">Get Anything</span>
 						<span className="">Delivered Straight to</span>
 						<span className="text-[#b9ff66]">Your Door</span>
@@ -17,8 +17,8 @@ export default function Hero() {
 				</div>
 			</div>
 			<div className="flex flex-col justify-center items-center w-full">
-				<div className="text-white w-3/4 text-center mb-8">
-					<p className="text-2xl font-normal">Save time and energy by ordering groceries, essentials, and more from your favorite stores. Enjoy the convenience of having everything you need delivered directly to your apartment without ever stepping out.</p>
+				<div className="text-white w-full lg:w-3/4 text-center mb-8">
+					<p className="text-base lg:text-2xl font-normal">Save time and energy by ordering groceries, essentials, and more from your favorite stores. Enjoy the convenience of having everything you need delivered directly to your apartment without ever stepping out.</p>
 				</div>
 				<div>
 					<ButtonPrimary>Shop Now</ButtonPrimary>

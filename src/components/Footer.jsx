@@ -4,12 +4,12 @@ export default function Footer() {
 	const currentYear = new Date().getFullYear()
 
   return (
-		<div className="bg-[#040409] px-16 py-10">
+		<div className="bg-[#040409] px-4 lg:px-16 pt-3 pb-10 lg:py-10">
 
-			<img src="/images/Vector (1).png"  className="mb-10" alt="" />
+			<img src="/images/Vector (1).png"  className="mb-4 lg:mb-10 h-4 lg:h-10" alt="" />
 
 			<div>
-				<div className="text-white text-xl space-x-10 mb-20">
+				<div className="text-white text-[0.5rem] lg:text-xl space-x-10 mb-8 lg:mb-20">
 					<a href="#about">About Us</a>
 					<a href="#work">How it Works</a>
 					<a href="#benefits">Benefits</a>
@@ -18,13 +18,13 @@ export default function Footer() {
 				</div>
 			</div>
 		
-			<div className="border border-[#c8cad0] w-full mb-10"></div>
+			<div className="border border-[#c8cad0] w-full mb-4 lg:mb-10"></div>
 
 			<div className="flex justify-between items-center">
-				<p className="text-gray-300">© {currentYear} ErrandsPap. All rights reserved.</p>
+				<p className="text-gray-300 text-xs lg:text-base">© {currentYear} ErrandsPap. All rights reserved.</p>
 				<div className="flex gap-5">
-					<img src="/images/x-social-media-white-icon.png" alt="" className="h-6" />
-					<img src="/images/linkedin.png" alt="" className="h-6" />
+					<img src="/images/x-social-media-white-icon.png" alt="" className="h-3 lg:h-6" />
+					<img src="/images/linkedin.png" alt="" className="h-3 lg:h-6" />
 				</div>
 			</div>
 		</div>

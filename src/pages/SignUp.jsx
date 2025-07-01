@@ -70,9 +70,9 @@ export default function SignUp() {
 
   return (
     <div className="bg-[#06050f] flex w-full">
-			<img className="h-screen w-1/2 object-cover" src="/images/Rectangle 79.png" alt="" />
+			<img className="h-screen w-1/2 object-cover hidden lg:block" src="/images/Rectangle 79.png" alt="" />
 
-			<div className="flex flex-col items-center w-1/2 px-[12rem] pt-4">
+			<div className="flex flex-col items-center justify-center w-full lg:w-1/2 px-[2rem] lg:px-[12rem] h-screen pt-4">
 				<h2 className="text-white font-medium text-2xl self-start mb-2">Let's Get You Started</h2>
 				<h1 className="text-[#b9ff66] text-5xl font-medium self-start mb-6">Sign Up</h1>
 

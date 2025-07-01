@@ -33,33 +33,33 @@ export default function OrderDetails() {
   }
 
   return (
-		<div className="px-16 w-full bg-[#06050f] pb-20">
+		<div className="px-2 lg:px-16 w-full bg-[#06050f] pb-20">
 			<div className="flex flex-col justify-center items-center w-full">
-				<h1 className="text-white font-medium text-5xl mb-10">Preview</h1>
+				<h1 className="text-white font-medium text-2xl lg:text-5xl mb-10">Preview</h1>
 
-				<h2 className="text-white font-bold text-lg">Building and House Number</h2>
+				<h2 className="text-white font-bold lg:text-lg">Building and House Number</h2>
 				<h4 className="text-white font-normal text-sm mt-2">{order.order.delivery_location ? order.order.delivery_location : '--'}</h4>
 
 				<div className="border-b-[0.5px] w-1/2 my-6"></div>
 
-				<h2 className="text-white font-bold text-lg">Items</h2>
+				<h2 className="text-white font-bold lg:text-lg">Items</h2>
 
 				{order.order.items.map((item) => (
 					<div className="flex justify-between items-center mt-2 w-1/3">
-						<p className="text-white">{item.name}</p>
-						<p className="text-white">{item.price}</p>
+						<p className="text-white text-sm lg:text-base">{item.name}</p>
+						<p className="text-white text-sm lg:text-base">{item.price}</p>
 					</div>
 				))}
 
 				<div className="flex justify-between items-center mt-10 w-1/3">
-					<p className="text-white">Subtotal</p>
-					<p className="text-white">{order.order.total_amount}</p>
+					<p className="text-white text-sm lg:text-base">Subtotal</p>
+					<p className="text-white text-sm lg:text-base">{order.order.total_amount}</p>
 				</div>
 
 				<div className="border-b-[0.5px] w-1/2 my-6"></div>
 				
-				<h2 className="text-white font-bold text-lg">Special Instructions</h2>
-				<p className="text-white w-1/2">{order.order.special_instructions ? order.order.special_instructions : '--'}</p>
+				<h2 className="text-white font-bold lg:text-lg">Special Instructions</h2>
+				<p className="text-white w-1/2 text-sm lg:text-base mt-2">{order.order.special_instructions ? order.order.special_instructions : '--'}</p>
 
 				<div className="border-b-[0.5px] w-1/2 my-6"></div>
 

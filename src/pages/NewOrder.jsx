@@ -49,13 +49,13 @@ export default function NewOrder() {
 	}
 
   return (
-    <div className="px-16 bg-[#06050f] w-full">
+    <div className="px-4 lg:px-16 bg-[#06050f] w-full">
       <div className="flex flex-col justify-center items-center w-full">
 				<HomeAndBuilding onAddressSelect={setSelectedAddress} />
 
-				<h1 className="text-white font-normal text-5xl my-10">New Order</h1>
+				<h1 className="text-white font-normal text-2xl lg:text-5xl my-10">New Order</h1>
 
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-full lg:w-1/2">
 					<form onSubmit={handleSubmit} className="flex flex-col mb-8">
 						<label htmlFor="" className="text-white font-medium self-start mb-2">Item and Price</label>
 						{fields.map((field, index) => (
@@ -65,7 +65,7 @@ export default function NewOrder() {
 									onChange={(e) => handleFieldChange(index, e)} 
 									name="vendor" 
 									id="vendor"
-									className="flex-1 px-4 py-2 bg-black text-white focus:outline-none"
+									className="w-1/3 px-1 lg:px-4 py-2 bg-black text-sm lg:text-base text-white focus:outline-none"
 								>
 									<option value="" disabled selected hidden>Select Vendor</option>
 									<option value="Groceries">Groceries</option>
@@ -75,7 +75,7 @@ export default function NewOrder() {
 								<input 
 									type="text" 
 									placeholder="Item" 
-									className="flex-1 px-4 py-2 bg-black border-l text-white focus:outline-none"
+									className="w-1/3 px-1 lg:px-4 py-2 bg-black text-sm lg:text-base border-l text-white focus:outline-none"
 									name="item"
 									value={field.item}
 									onChange={(e) => handleFieldChange(index, e)}
@@ -83,7 +83,7 @@ export default function NewOrder() {
 								<input 
 									type="number" 
 									placeholder="Price" 
-									className="flex-1 px-4 py-2 bg-black border-l text-white focus:outline-none"
+									className="w-1/3 px-1 lg:px-4 py-2 bg-black text-sm lg:text-base border-l text-white focus:outline-none"
 									name="price"
 									value={field.price}
 									onChange={(e) => handleFieldChange(index, e)}
